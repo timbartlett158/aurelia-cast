@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0b0c0f;
+  --color-panel: #13151a;
+  --color-well: #1a1d24;
+  --color-hairline: #262a34;
+  --color-gold: #d4af37;
+  --color-gold-dim: #8a742a;
+  --color-emerald-ok: #16a34a;
+  --color-amber-drift: #d97706;
+  --color-crimson-off: #dc2626;
+  --color-ink: #e8e6df;
+  --color-ink-dim: #8f93a0;
+
+  --font-display: var(--font-outfit), system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+html,
+body {
+  background: var(--color-obsidian);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+}
+
+input,
+select,
+textarea {
+  background: var(--color-well);
+  border: 1px solid var(--color-hairline);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: var(--color-ink);
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+button {
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.osd-scrim {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.35), transparent);
+}
+
+.panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-hairline);
+  border-radius: 10px;
+}
+
+.well {
+  background: var(--color-well);
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--color-hairline);
+}
+.hairline-r {
+  border-right: 1px solid var(--color-hairline);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1a1d24 25%, #22252e 50%, #1a1d24 75%);
+  background-size: 200% 100%;
+  animation: skeleton 1.4s ease infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.led {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.led-nominal {
+  background: var(--color-emerald-ok);
+}
+.led-nudging {
+  background: var(--color-amber-drift);
+}
+.led-recovering {
+  background: var(--color-crimson-off);
+}
+.led-pending {
+  background: var(--color-ink-dim);
+  opacity: 0.5;
+}
